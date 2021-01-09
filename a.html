@@ -1,5 +1,35 @@
-# yiyiling.github.io
 
-hahahah
-
-
+<meta charset= "UTF-8">
+<style>html{font-size:40px;}</style>
+显示时间
+<script>document.write(Date())</script>
+<br/>
+post显示框架网页
+<br/>
+<iframe id="mainIframe" name="mainIframe" src="http://www.so.com" frameborder="0" scrolling="auto" ></iframe>
+<iframe id="mainIframe" name="mainIframe" src="http://sanliuyi.tpddns.cn:71" frameborder="0" scrolling="auto" ></iframe>
+<br/>
+post显示json
+<br/>
+<script src="http://sanliuyi.tpddns.cn:71/json.php"></script>
+<script type="text/javascript">
+document.write(returnCitySN["name"]+','+returnCitySN["pwd"])
+</script>
+<br/>
+post显示ajax跨域
+<br/>
+<p id="result"></p>
+<script>
+function ajax()
+{    var xhr;
+    xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function()
+    {        if (xhr.readyState==4 && xhr.status==200)
+        {            document.getElementById('result').innerText = xhr.responseText;
+          var aaa = xhr.responseText;
+          //alert(aaa);
+     }    };
+    xhr.open("GET","http://sanliuyi.tpddns.cn:71/tongji.php",true);
+    xhr.send();}
+ajax();
+</script>
