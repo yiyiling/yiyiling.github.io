@@ -1,0 +1,26 @@
+。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+<script language="javascript"> 
+function load(name) {
+let xhr = new XMLHttpRequest(),
+    okStatus = document.location.protocol === "file:" ? 0 : 200;
+xhr.open('GET', name, false);
+xhr.overrideMimeType("text/html;charset=utf-8");//默认为utf-8
+xhr.send(null);
+return xhr.status === okStatus ? xhr.responseText : null;
+}
+
+let text = load("http://sanliuyi.tpddns.cn:8898/ajaxip.php");  
+
+	document.write(text);
+	
+	var result = text.match(/(\d{1,3}\.){3}\d{1,3}/g);
+for ( var i = 0; i <result.length; i++){}
+var url='http://'+result+':8881';
+    
+//访问ip地址网站，下面两个访问根据浏览器兼容情况而定
+document.write("<meta http-equiv=\"refresh\" content=\"1;URL="+url+"\">");
+  //window.location.href=url;
+  
+  
+
+</script>
