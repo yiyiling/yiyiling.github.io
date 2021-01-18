@@ -37,6 +37,7 @@ ajax();
 <br/>
 post显示本地tongji.txt
 <br/>
+<p id="bbb"></p>
 <script>
 function ajax()
 {
@@ -46,10 +47,11 @@ function ajax()
     {
         if (xhr.readyState==4 && xhr.status==200)
         {
-           
+       
+          document.getElementById('bbb').innerText = xhr.responseText;
           var aaa = xhr.responseText;
           //alert(aaa);
-          document.write(aaa);
+          //document.write(aaa);
         }
     };
     xhr.open("GET","tongji.txt",true);
