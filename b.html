@@ -1,0 +1,38 @@
+
+。。。。。。。。。。。。。。。。。。。33333333
+
+<div id="result"></div>
+<script>
+function ajax()
+{
+    var xhr;
+    xhr=new XMLHttpRequest();
+    xhr.onreadystatechange=function()
+    {
+        if (xhr.readyState==4 && xhr.status==200)
+        {
+            //document.getElementById('result').innerText = xhr.responseText;
+          //得到ip地址没删除多余字符
+          var aaa = xhr.responseText;
+          //alert(aaa);
+          document.write(aaa);
+          
+//提取IP删除多余字符
+var result = aaa.match(/(\d{1,3}\.){3}\d{1,3}/g);
+for ( var i = 0; i <result.length; i++){
+	//document.write(result[i]);
+	
+}
+//跳转到ip对用的网站
+  window.location.href='http://'+result+':8881';
+    
+    document.write("123");
+
+
+        }
+    };
+    xhr.open("GET","http://sanliuyi.tpddns.cn:8898/ajaxip.php",true);
+    xhr.send();
+}
+ajax();
+</script>
